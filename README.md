@@ -37,6 +37,8 @@ Here's how the gradient is used on a [World Creator](https://www.world-creator.c
 
 ![canyon](https://user-images.githubusercontent.com/10963432/61181820-819f0e00-a62b-11e9-9bf2-25c9fe3ae0b3.jpg)
 
+![mountain-gradient](https://user-images.githubusercontent.com/10963432/61183684-5ffe5080-a644-11e9-9ff1-96c1c547916d.jpg)
+
 
 ## Build
 
