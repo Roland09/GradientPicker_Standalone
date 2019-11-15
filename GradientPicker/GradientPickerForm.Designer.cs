@@ -40,6 +40,8 @@
             this.GradientWidthComboBox = new System.Windows.Forms.ComboBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.NewSessionButton = new System.Windows.Forms.Button();
+            this.ExportRotationLabel = new System.Windows.Forms.Label();
+            this.ExportRotationComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.SourcePictureBox)).BeginInit();
             this.GradientGroupBox.SuspendLayout();
             this.GradientLayoutPanel.SuspendLayout();
@@ -134,6 +136,8 @@
             // 
             // ToolsGroupBox
             // 
+            this.ToolsGroupBox.Controls.Add(this.ExportRotationComboBox);
+            this.ToolsGroupBox.Controls.Add(this.ExportRotationLabel);
             this.ToolsGroupBox.Controls.Add(this.GradientWidthLabel);
             this.ToolsGroupBox.Controls.Add(this.GradientWidthComboBox);
             this.ToolsGroupBox.Controls.Add(this.SaveButton);
@@ -167,7 +171,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(447, 19);
+            this.SaveButton.Location = new System.Drawing.Point(713, 20);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(126, 23);
             this.SaveButton.TabIndex = 5;
@@ -184,6 +188,24 @@
             this.NewSessionButton.Text = "New Session";
             this.NewSessionButton.UseVisualStyleBackColor = true;
             this.NewSessionButton.Click += new System.EventHandler(this.NewSessionButton_Click);
+            // 
+            // ExportRotationLabel
+            // 
+            this.ExportRotationLabel.AutoSize = true;
+            this.ExportRotationLabel.Location = new System.Drawing.Point(499, 25);
+            this.ExportRotationLabel.Name = "ExportRotationLabel";
+            this.ExportRotationLabel.Size = new System.Drawing.Size(80, 13);
+            this.ExportRotationLabel.TabIndex = 8;
+            this.ExportRotationLabel.Text = "Export Rotation";
+            // 
+            // ExportRotationComboBox
+            // 
+            this.ExportRotationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ExportRotationComboBox.FormattingEnabled = true;
+            this.ExportRotationComboBox.Location = new System.Drawing.Point(586, 21);
+            this.ExportRotationComboBox.Name = "ExportRotationComboBox";
+            this.ExportRotationComboBox.Size = new System.Drawing.Size(121, 21);
+            this.ExportRotationComboBox.TabIndex = 9;
             // 
             // GradientPickerForm
             // 
@@ -221,6 +243,8 @@
         private System.Windows.Forms.FlowLayoutPanel GradientLayoutPanel;
         private System.Windows.Forms.ComboBox GradientWidthComboBox;
         private System.Windows.Forms.Label GradientWidthLabel;
+        private System.Windows.Forms.ComboBox ExportRotationComboBox;
+        private System.Windows.Forms.Label ExportRotationLabel;
     }
 }
 

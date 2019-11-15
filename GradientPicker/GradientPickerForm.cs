@@ -80,6 +80,34 @@ namespace GradientPicker
             }
         }
 
+        private class ExportRotation
+        {
+            public const int NONE_ID = 0;
+
+            public int Id { get; set; }
+
+            public string Name { get; set; }
+
+            public RotateFlipType RotateFlipType { get; set; }
+
+            /// <summary>
+            /// Name of the "Name" member for the combobox datasource
+            /// </summary>
+            public string GetDisplayMemberName()
+            {
+                return nameof(Name);
+            }
+
+            /// <summary>
+            /// Name of the Value member for the combobox datasource
+            /// </summary>
+            /// <returns></returns>
+            public string GetValueMemberName()
+            {
+                return nameof(Id);
+            }
+        }
+
         /// <summary>
         /// Set window state, init form and custom components, start new session.
         /// </summary>
@@ -105,30 +133,58 @@ namespace GradientPicker
         {
             #region Gradient Width
 
-            var selectedValue = 2048;
+            var selectedGradientWidth = 2048;
 
             // gradient width datasource
-            var dataSource = new List<GradientWidth>();
+            var gradientWidths = new List<GradientWidth>();
 
             // predefined widths
-            dataSource.Add(new GradientWidth() { Name = "128", Value = 128 });
-            dataSource.Add(new GradientWidth() { Name = "256", Value = 256 });
-            dataSource.Add(new GradientWidth() { Name = "512", Value = 512 });
-            dataSource.Add(new GradientWidth() { Name = "1024", Value = 1024 });
-            dataSource.Add(new GradientWidth() { Name = "2048", Value = 2048 });
-            dataSource.Add(new GradientWidth() { Name = "Sampled Colors", Value = GradientWidth.SAMPLED_COLORS_ID });
+            gradientWidths.Add(new GradientWidth() { Name = "128", Value = 128 });
+            gradientWidths.Add(new GradientWidth() { Name = "256", Value = 256 });
+            gradientWidths.Add(new GradientWidth() { Name = "512", Value = 512 });
+            gradientWidths.Add(new GradientWidth() { Name = "1024", Value = 1024 });
+            gradientWidths.Add(new GradientWidth() { Name = "2048", Value = 2048 });
+            gradientWidths.Add(new GradientWidth() { Name = "Sampled Colors", Value = GradientWidth.SAMPLED_COLORS_ID });
 
             // set datasource
-            this.GradientWidthComboBox.DataSource = dataSource;
+            this.GradientWidthComboBox.DataSource = gradientWidths;
 
             // set combobox automatisms
-            this.GradientWidthComboBox.DisplayMember = dataSource[0].GetDisplayMemberName();
-            this.GradientWidthComboBox.ValueMember = dataSource[0].GetValueMemberName();
+            this.GradientWidthComboBox.DisplayMember = gradientWidths[0].GetDisplayMemberName();
+            this.GradientWidthComboBox.ValueMember = gradientWidths[0].GetValueMemberName();
 
             // preselect value
-            this.GradientWidthComboBox.SelectedValue = selectedValue;
+            this.GradientWidthComboBox.SelectedValue = selectedGradientWidth;
 
             #endregion Gradient Width
+
+            #region Rotation ComboBox
+
+            // preselected rotation
+            var selectedExportRotation = ExportRotation.NONE_ID;
+
+            // list of export rotations
+            var exportRotations = new List<ExportRotation>();
+
+            // predefined rotations
+            exportRotations.Add(new ExportRotation() { Id = ExportRotation.NONE_ID, Name = "None", RotateFlipType = RotateFlipType.RotateNoneFlipNone});
+            exportRotations.Add(new ExportRotation() { Id = 1, Name = "World Creator 2", RotateFlipType = RotateFlipType.RotateNoneFlipNone });
+            exportRotations.Add(new ExportRotation() { Id = 2, Name = "MicroSplat", RotateFlipType = RotateFlipType.Rotate270FlipNone });
+            exportRotations.Add(new ExportRotation() { Id = 3, Name = "90 ClockWise", RotateFlipType = RotateFlipType.Rotate90FlipNone });
+            exportRotations.Add(new ExportRotation() { Id = 4, Name = "180 ClockWise", RotateFlipType = RotateFlipType.Rotate180FlipNone });
+            exportRotations.Add(new ExportRotation() { Id = 5, Name = "270 ClockWise", RotateFlipType = RotateFlipType.Rotate270FlipNone });
+
+            // set datasource
+            this.ExportRotationComboBox.DataSource = exportRotations;
+
+            // set combobox automatisms
+            this.ExportRotationComboBox.DisplayMember = exportRotations[0].GetDisplayMemberName();
+            this.ExportRotationComboBox.ValueMember = exportRotations[0].GetValueMemberName();
+
+            // preselect value
+            this.ExportRotationComboBox.SelectedValue = selectedExportRotation;
+
+            #endregion
         }
 
         /// <summary>
@@ -481,6 +537,7 @@ namespace GradientPicker
         /// <param name="evt"></param>
         private void SaveButton_Click(object sender, EventArgs evt)
         {
+
             // save dialog, select filename
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Filter = "PNG (*.png)|*.png";
@@ -503,6 +560,12 @@ namespace GradientPicker
 
             // create an image from the bitmap which has a save method
             Image saveImage = saveBitmap as Image;
+
+            // get selected export rotation
+            ExportRotation exportRotation = ExportRotationComboBox.SelectedItem as ExportRotation;
+
+            // rotate the image
+            saveImage.RotateFlip(exportRotation.RotateFlipType);
 
             // save the image
             saveImage.Save(dialog.FileName, ImageFormat.Png);
