@@ -18,6 +18,8 @@ The gradient can be saved as PNG file with the width of the gradient and a heigh
 
 If you want to capture another image, clicking "New Session" captures the primary desktop again.
 
+The Export Rotation option allows you to save the gradient image at a specified rotation. There are presets for popular apps and assets like [World Creator](https://www.world-creator.com/) and [MicroSplat](https://assetstore.unity.com/packages/tools/terrain/microsplat-global-texturing-96482).
+
 ## Screenshot
 
 Here's a screenshot how it looks like currently:
