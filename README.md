@@ -6,7 +6,7 @@ Gradientpicker allows you to capture the primary desktop and create a gradient b
 
 ## Background
 
-I wanted to create gradients for colorizing a Canyon I created using [World Creator](https://www.world-creator.com/). The terrain was then imported into Unity, the gradient applied using [MicroSplat](https://assetstore.unity.com/packages/tools/terrain/microsplat-global-texturing-96482). With this tool you can load an image of a mountain, drag a line along the mountain and get the color gradient of it.
+I wanted to create gradients for colorizing a Canyon I created using [World Creator](https://www.world-creator.com/). The terrain was then imported into Unity, the gradient applied using [MicroSplat](https://assetstore.unity.com/packages/tools/terrain/microsplat-global-texturing-96482). With this tool you can capture e. g. an image of a mountain, drag a line along the mountain and get the color gradient of it.
 
 ## Usage
 
