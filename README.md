@@ -41,11 +41,6 @@ Here's how the gradient is used on a [World Creator](https://www.world-creator.c
 
 ![mountain-gradient](https://user-images.githubusercontent.com/10963432/61183684-5ffe5080-a644-11e9-9ff1-96c1c547916d.jpg)
 
-## Build
-
-The pre-compiled executable is compiled for Win10 x64 and provided for convenience. 
-
-Usage is of course at your own risk, unfortunately I don't have the means to sign the app. But feel free to compile the source on your own.
 
 ## License
 
