@@ -1,4 +1,4 @@
-# GradientPicker
+# GradientPicker (Standalone)
 
 ## Description
 
